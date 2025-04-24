@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection - Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Pneumonia Detection Result</h1>
+
+        <h3>Name: <strong>{{ name }}</strong></h3>
+        <h4>Age: <strong>{{ age }}</strong></h4>
+        <h4>Sex: <strong>{{ sex }}</strong></h4>
+        <h4>Place: <strong>{{ place }}</strong></h4>
+
+        {% if result is defined and probability is defined %}
+
+            <h3>Prediction: <strong>{{ result }}</strong></h3>
+            <h4>Confidence: <strong>{{ probability*100 | round(2) }}%</strong></h4>
+        {% else %}
+            <h3 style="color:red;">Prediction Failed! No result available.</h3>
+        {% endif %}
+
+        <br>
+        <a href="/" class="btn btn-primary">Try Another Image</a>
+        <a href="/saved_data" class="btn btn-secondary">View All Saved Data</a>
+    </div>
+</body>
+</html>
